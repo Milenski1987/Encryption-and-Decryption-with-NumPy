@@ -17,32 +17,35 @@ def text_to_matrix(text, size):
 
 def encrypt(matrix, key):
 # Key matrix multiplication encryption function
-    # Използвай np.dot() за умножение на матрицата с ключа
-
+    # Using np.dot() to multiply the matrix by the key
+    encrypted_matrix = np.dot(matrix, key)
     return encrypted_matrix
 
 def decrypt(encrypted_matrix, key):
 # Decryption function via inverse matrix
-    # Намиране на обратната матрица с np.linalg.inv()
-
-    # Използвай np.dot() за умножение с обратната матрица
-
-    # Преобразува резултата в цели числа
-
+    # Finding the inverse matrix with np.linalg.inv()
+    inverted_key = np.linalg.inv(key)
+    # Using np.dot() to multiply with the inverse matrix
+    decrypted_matrix = np.dot(encrypted_matrix, inverted_key)
+    # Converts the result to integers
+    decrypted_matrix = np.round(decrypted_matrix).astype(int)
     return decrypted_matrix
 
 def matrix_to_text(matrix):
 # Function to convert a matrix back to text
-    # Преобразува матрицата в едномерен списък
-
-    # Преобразува ASCII кодовете обратно в символи
-
+    # Converts the matrix to a one-dimensional list
+    text_as_code = [number for row in matrix for  number in row if number != 0]
+    # Converts ASCII codes back to characters
+    text = ""
+    for number in text_as_code:
+        text += chr(number)
     return text
 
 
 # --- Program demonstration ---
 # Input text for encryption
-text = "HELLO"
+text = input("Enter your message: ")
+print(f"Original message: {text}")
 
 # Define a key matrix (must be invertible)
 key = np.array([[3, 2], [1, 4]])
