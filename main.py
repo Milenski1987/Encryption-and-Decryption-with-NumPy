@@ -5,12 +5,15 @@ import numpy as np
 def text_to_matrix(text, size):
 #Function for converting text to matrix (ASCII codes)
     # Преобразува всеки символ в ASCII код и ги съхранява в списък
-
+    text_as_code = [ord(character) for character in text]
     # Допълва списъка с нули, ако дължината не е кратна на размера на матрицата
-
+    while len(text_as_code) % size != 0:
+        text_as_code.append(0)
     # Преобразува списъка в NumPy матрица с размер size (брой колони)
+    text_as_code = np.array(text_as_code)
+    text_as_code = text_as_code.reshape(len(text_as_code) // 2, 2)
+    return text_as_code
 
-    return matrix
 
 def encrypt(matrix, key):
 # Key matrix multiplication encryption function
