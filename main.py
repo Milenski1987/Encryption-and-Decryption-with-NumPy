@@ -1,4 +1,5 @@
 import numpy as np
+from random import randint
 #import required library
 
 
@@ -14,6 +15,16 @@ def text_to_matrix(text, size):
     text_as_code = text_as_code.reshape(len(text_as_code) // 2, 2)
     return text_as_code
 
+def generate_key():
+# Generate random key for better security
+    keys_list = []
+    # Using randint from random to generate numbers for key matrix
+    for _ in range(4):
+        keys_list.append(randint(1, 9))
+    # Convert list into matrix and reshape it
+    keys_list = np.array(keys_list)
+    key_matrix = np.reshape(keys_list, (2,2))
+    return key_matrix
 
 def encrypt(matrix, key):
 # Key matrix multiplication encryption function
@@ -48,7 +59,7 @@ text = input("Enter your message: ")
 print(f"Original message: {text}")
 
 # Define a key matrix (must be invertible)
-key = np.array([[3, 2], [1, 4]])
+key = generate_key()
 
 # Convert text to a numeric matrix
 matrix = text_to_matrix(text, 2)
