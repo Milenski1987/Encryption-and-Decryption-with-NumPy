@@ -1,4 +1,4 @@
-# Encryption and Decryption with numpy
+# Encryption and Decryption with NumPy
 ---
 ![image](https://github.com/user-attachments/assets/0d3a3882-ec5a-4252-893e-a3effad63a89)
 
