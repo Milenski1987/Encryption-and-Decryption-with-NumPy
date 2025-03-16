@@ -17,10 +17,8 @@ def text_to_matrix(text, size):
 
 def generate_key():
 # Generate random key for better security
-    # Using randint to generate numbers for key matrix
-    np.random.seed(0)
-    key_matrix = np.random.randint(10, size=4)
-    key_matrix.shape = (2, 2)
+    # Generate random key matrix
+    key_matrix = np.random.rand(2, 2)
     return key_matrix
 
 def encrypt(matrix, key):
