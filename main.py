@@ -24,7 +24,8 @@ def encrypt(matrix, key):
 # Key matrix multiplication encryption function
     # Using np.dot() to multiply the matrix by the key
     encrypted_matrix = np.dot(matrix, key)
-    return encrypted_matrix
+    encrypted_message = [chr(int(number)) for row in encrypted_matrix for  number in row if number != 0]
+    return encrypted_matrix, encrypted_message
 
 def decrypt(encrypted_matrix, key):
 # Decryption function via inverse matrix
@@ -60,7 +61,8 @@ matrix = text_to_matrix(text, 2)
 print("Original matrix:\n", matrix)
 
 # Matrix encryption
-encrypted_matrix = encrypt(matrix, key)
+encrypted_matrix, encrypted_text = encrypt(matrix, key)
+print(f"Encrypted message:\n{''.join(encrypted_text)}")
 print("Encrypted matrix:\n", encrypted_matrix)
 
 # Matrix decryption
