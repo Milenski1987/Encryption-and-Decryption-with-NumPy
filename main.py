@@ -1,4 +1,5 @@
 import numpy as np
+from colorama import Fore
 #import required library
 
 
@@ -51,24 +52,22 @@ def matrix_to_text(matrix):
 # --- Program demonstration ---
 # Input text for encryption
 text = input("Enter your message: ")
-print(f"Original message: {text}")
+print(Fore.MAGENTA + f"Original message: {Fore.BLUE + text}\n")
+
 
 # Define a key matrix (must be invertible)
 key = generate_key()
 
 # Convert text to a numeric matrix
 matrix = text_to_matrix(text, 2)
-print("Original matrix:\n", matrix)
 
 # Matrix encryption
 encrypted_matrix, encrypted_text = encrypt(matrix, key)
-print(f"Encrypted message:\n{''.join(encrypted_text)}")
-print("Encrypted matrix:\n", encrypted_matrix)
+print(Fore.MAGENTA + f"Encrypted message: {Fore.RED + ''.join(encrypted_text)}\n")
 
 # Matrix decryption
 decrypted_matrix = decrypt(encrypted_matrix, key)
-print("Decrypted matrix:\n", decrypted_matrix)
 
 # Convert back to text
 decrypted_text = matrix_to_text(decrypted_matrix)
-print("Deciphered text:", decrypted_text)
+print(Fore.MAGENTA + "Deciphered text:", Fore.BLUE + decrypted_text)
