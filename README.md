@@ -12,6 +12,9 @@
 ✅ Working with ASCII values to represent characters as matrices  
 ✅ Possibility for different encryption keys  
 
+🎯 Comming soon:
+- graphical user interface to be added
+
 ---
 
 📌 How does it work?
