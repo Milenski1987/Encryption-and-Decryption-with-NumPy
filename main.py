@@ -25,7 +25,7 @@ def encrypt(matrix, key):
 # Key matrix multiplication encryption function
     # Using np.dot() to multiply the matrix by the key
     encrypted_matrix = np.dot(matrix, key)
-    encrypted_message = [chr(int(number)) for row in encrypted_matrix for  number in row if number != 0]
+    encrypted_message = [chr(int(number)) for row in encrypted_matrix for  number in row]
     return encrypted_matrix, encrypted_message
 
 def decrypt(encrypted_matrix, key):
