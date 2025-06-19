@@ -14,7 +14,7 @@
 
 🎯 Comming soon:
 - graphical user interface to be added
-asd
+  
 ---
 
 📌 How does it work?
